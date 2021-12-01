@@ -23,13 +23,17 @@ public class Day01Part2 {
 	static int solvePuzzle(final List<Integer> input) {
 		int count = 0;
 		for (int idx = 1; idx < input.size() - 2; idx++) {
-			final int prevSum = input.get(idx - 1) + input.get(idx) + input.get(idx + 1);
-			final int nextSum = input.get(idx) + input.get(idx + 1) + input.get(idx + 2);
+			final int prevSum = getSlidingWindow(input, idx - 1);
+			final int nextSum = getSlidingWindow(input, idx);
 			if (nextSum > prevSum) {
 				count++;
 			}
 		}
 		return count;
+	}
+
+	private static Integer getSlidingWindow(final List<Integer> input, final int startIndex) {
+		return input.subList(startIndex, startIndex + 2).stream().mapToInt(e -> e).sum();
 	}
 
 	static List<Integer> readList(final String inputName) throws IOException, URISyntaxException {
