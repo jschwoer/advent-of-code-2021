@@ -11,7 +11,7 @@ import de.jatech.adventofcode.common.Utils;
 public class Day01Part1Test {
 	@Test
 	void testPuzzle() throws Exception {
-		final List<Integer> list = Utils.readListInt("input_example.txt");
+		final List<Integer> list = Utils.readListInt("day01/input_example.txt");
 
 		final int result = Day01Part1.solvePuzzle(list);
 

@@ -8,7 +8,7 @@ import de.jatech.adventofcode.common.Utils;
 
 public class Day01Part1 {
 	public static void main(final String[] args) throws IOException, URISyntaxException {
-		final List<Integer> input = Utils.readListInt("input.txt");
+		final List<Integer> input = Utils.readListInt("day01/input.txt");
 
 		for (final int i : input) {
 			System.out.println(i);
