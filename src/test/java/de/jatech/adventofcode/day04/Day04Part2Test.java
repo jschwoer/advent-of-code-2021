@@ -15,6 +15,6 @@ public class Day04Part2Test {
 
 		final int result = Day04Part2.solvePuzzle(list);
 
-		assertEquals(230, result);
+		assertEquals(1924, result);
 	}
 }

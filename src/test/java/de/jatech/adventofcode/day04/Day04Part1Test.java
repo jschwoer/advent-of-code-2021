@@ -15,6 +15,6 @@ public class Day04Part1Test {
 
 		final int result = Day04Part1.solvePuzzle(list);
 
-		assertEquals(198, result);
+		assertEquals(4512, result);
 	}
 }
