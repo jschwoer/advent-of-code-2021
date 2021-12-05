@@ -21,7 +21,7 @@ public class Day05Part1Test {
 	@Test
 	void testGetCoverPoints_SameX() throws Exception {
 		final Line line = new Line(1, 1, 1, 3);
-		final List<Point> coverPoints = line.getCoverPoints();
+		final List<Point> coverPoints = line.getCoverPoints(false);
 
 		assertEquals(3, coverPoints.size());
 		assertEquals(new Point(1, 1), coverPoints.get(0));
@@ -32,7 +32,7 @@ public class Day05Part1Test {
 	@Test
 	void testGetCoverPoints_SameY() throws Exception {
 		final Line line = new Line(9, 7, 7, 7);
-		final List<Point> coverPoints = line.getCoverPoints();
+		final List<Point> coverPoints = line.getCoverPoints(false);
 
 		assertEquals(3, coverPoints.size());
 		assertEquals(new Point(7, 7), coverPoints.get(0));
@@ -43,7 +43,7 @@ public class Day05Part1Test {
 	@Test
 	void testGetCoverPoints_DifferentXandY() throws Exception {
 		final Line line = new Line(8, 0, 0, 8);
-		final List<Point> coverPoints = line.getCoverPoints();
+		final List<Point> coverPoints = line.getCoverPoints(false);
 
 		assertEquals(0, coverPoints.size());
 	}

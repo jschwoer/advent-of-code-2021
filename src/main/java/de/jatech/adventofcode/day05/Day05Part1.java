@@ -29,7 +29,7 @@ public class Day05Part1 {
 
 		Map<Point, Integer> heatMap = new HashMap<>();
 		for (Line line : lines) {
-			List<Point> coverPoints = line.getCoverPoints();
+			List<Point> coverPoints = line.getCoverPoints(false);
 			for (Point point : coverPoints) {
 				Integer value = heatMap.get(point);
 				if (value == null) {

@@ -16,36 +16,32 @@ class Line {
 		this.end = end;
 	}
 
-	public List<Point> getCoverPoints() {
+	public List<Point> getCoverPoints(boolean considerVertical) {
 		final List<Point> result = new ArrayList<>();
-
+		
 		if (start.getX() == end.getX()) {
 			int distance = Math.abs(start.getY() - end.getY());
 			int lowerValue = Math.min(start.getY(), end.getY());
-
+			
 			for (int y = 0; y <= distance; y++) {
 				result.add(new Point(start.getX(), y + lowerValue));
 			}
-		} else if (start.getY() == end.getY()) {
-			int distance = Math.abs(start.getX() - end.getX());
-			int lowerValue = Math.min(start.getX(), end.getX());
-
-			for (int x = 0; x <= distance; x++) {
-				result.add(new Point(x + lowerValue, start.getY()));
-			}
 		} else {
-			int distanceX = Math.abs(start.getX() - end.getX());
-
-			int directionX = start.getX() < end.getX() ? 1 : -1;
-			int directionY = start.getY() < end.getY() ? 1 : -1;
-
-			int x = start.getX();
-			int y = start.getY();
-			for (int distance = 0; distance <= distanceX; distance++) {
-				result.add(new Point(x, y));
-				x += directionX;
-				y += directionY;
-			}
+			if (considerVertical || (start.getY() == end.getY())) {
+				// y = ax + b
+				int a = (end.getY() - start.getY()) / (end.getX() - start.getX());
+				
+				int ax = (a*start.getX());
+				
+				int b = start.getY() - ax;
+				
+				int lowerX = Math.min(start.getX(), end.getX());
+				int upperX = Math.max(start.getX(), end.getX());
+				for (int x = lowerX; x <= upperX; x++){
+					int y = a*x+b;
+					result.add(new Point(x, y));
+				}
+			}	
 		}
 		return result;
 	}
