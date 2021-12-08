@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import de.jatech.adventofcode.common.Utils;
 
@@ -23,21 +22,19 @@ public class Day07Part1 {
 		Arrays.sort(numbers);
 
 		final int median;
-		if (numbers.length % 2 == 0)
-		{
+		if (numbers.length % 2 == 0) {
 			// even
 			int idx = numbers.length / 2;
-			median = ((numbers[idx-1] + numbers[idx])) / 2;
-		}
-		else{
+			median = (numbers[idx - 1] + numbers[idx]) / 2;
+		} else {
 			// odd
 			int idx = (numbers.length + 1) / 2;
-			median = numbers[idx -1];
+			median = numbers[idx - 1];
 		}
-		
+
 		int sum = Arrays.stream(numbers).map(i -> Math.abs(i - median)).sum();
 		System.out.println("Median: " + median);
-		System.out.println("Sum: " +  sum);
+		System.out.println("Sum: " + sum);
 
 		return sum;
 	}
